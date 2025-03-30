@@ -4,16 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Eid Mubarak Card</title>
-    <link rel="stylesheet" href="styles.css">
     <style>
-        body {
+        /* General Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        html, body {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
             font-family: 'Garamond', serif;
             background-color: #f5f0e1;
             color: #5c3d2e;
             text-align: center;
-            margin: 0;
-            padding: 0;
-            overflow: hidden;
         }
         .container {
             display: none;
@@ -34,8 +39,12 @@
             height: 100%;
             object-fit: cover;
         }
+        
+        /* Responsive Text */
         .message {
-            font-size: 1.5em;
+            font-size: 1.2em;
+            width: 90%;
+            max-width: 400px;
             font-style: italic;
             position: absolute;
             top: 20px;
@@ -46,6 +55,8 @@
             padding: 10px;
             border-radius: 10px;
         }
+
+        /* Button Styles */
         button {
             background-color: #8c6b48;
             color: #fff;
@@ -55,40 +66,51 @@
             cursor: pointer;
             border-radius: 5px;
             position: absolute;
-            bottom: 20px;
+            bottom: 10%; /* Adjusted for better mobile fit */
             left: 50%;
             transform: translateX(-50%);
         }
         button:hover {
             background-color: #5c3d2e;
         }
+
+        /* Keyframe Animations */
         @keyframes fadeIn {
             from { opacity: 0; }
             to { opacity: 1; }
         }
+
+        /* Hide elements initially */
         .hidden {
             display: none;
         }
+
+        /* Background for Page 3 */
         #page3 {
             background: url('3.jpg') no-repeat center center/cover;
         }
+
     </style>
 </head>
 <body>
+
+    <!-- Page 1 -->
     <div class="container active" id="page1">
         <img src="1.jpg" alt="Eid Mubarak" class="full-page-img">
         <button onclick="nextPage()">Next</button>
     </div>
     
+    <!-- Page 2 -->
     <div class="container hidden" id="page2">
         <img src="2.jpg" alt="Eid Wishes" class="full-page-img">
         <button onclick="nextPage()">Next</button>
     </div>
     
+    <!-- Page 3 (Surprise Message) -->
     <div class="container hidden" id="page3">
         <p class="message">Surprise! There's something waiting for you...</p>
         <button onclick="revealSurprise()">Reveal</button>
-        <p id="surprise" class="hidden">You are the most beautiful blessing in my life!✨<br>May you always be happy.I will always be there for you.<br>Hope you liked your Eid card.Hihi<br>~Kitkat</p>
+        <p id="surprise" class="hidden">You are the most beautiful blessing in my life!✨<br>May you always be happy. I will always be there for you.<br>Hope you liked your Eid card. Hihi<br>~Kitkat</p>
     </div>
     
     <script>
@@ -104,5 +126,6 @@
             document.getElementById('surprise').classList.remove('hidden');
         }
     </script>
+
 </body>
 </html>
